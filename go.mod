@@ -1,3 +1,3 @@
-module github.com/carloscfgos1980/pokedex
+module github.com/bootdotdev/pokedexcli
 
 go 1.24.4
