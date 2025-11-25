@@ -374,3 +374,56 @@ func TestReapLoop(t *testing.T) {
   return
  }
 }
+
+# 3. Explore
+
+After a user uses the map commands to find a location area, we want them to be able to see a list of all the Pokémon located there.
+
+Assignment
+Add an explore command. It takes the name of a location area as an argument.
+
+Run and submit the CLI tests.
+
+Tips
+Use the same PokeAPI location-area endpoint, but this time you'll need to pass the name of the location area being explored. By adding a name or id, the API will return a lot more information about the location area.
+Feel free to use tools like JSON lint and JSON to Go to help you parse the response.
+Parse the Pokemon's names from the response and display them to the user.
+Make sure to use the caching layer again! Re-exploring an area should be blazingly fast.
+You'll need to alter the function signature of all your commands to allow them to allow parameters. E.g. explore <area_name>
+Example usage:
+
+Pokedex > explore pastoria-city-area
+Exploring pastoria-city-area...
+Found Pokemon:
+
+- tentacool
+- tentacruel
+- magikarp
+- gyarados
+- remoraid
+- octillery
+- wingull
+- pelipper
+- shellos
+- gastrodon
+Pokedex >
+
+# 4. Catch
+
+It's time to catch some pokemon! Catching Pokemon adds them to the user's Pokedex.
+
+Assignment
+Add a catch command. It takes the name of a Pokemon as an argument. Example usage:
+Pokedex > catch pikachu
+Throwing a Pokeball at pikachu...
+pikachu escaped!
+Pokedex > catch pikachu
+Throwing a Pokeball at pikachu...
+pikachu was caught!
+
+Be sure to print the Throwing a Pokeball at <pokemon>... message before determining if the Pokemon was caught or not.
+Use the Pokemon endpoint to get information about a Pokemon by name.
+Give the user a chance to catch the Pokemon using the math/rand package.
+You can use the pokemon's "base experience" to determine the chance of catching it. The higher the base experience, the harder it should be to catch.
+Once the Pokemon is caught, add it to the user's Pokedex. I used a map[string]Pokemon to keep track of caught Pokemon.
+Test the catch command manually - make sure you can actually catch a Pokemon within a reasonable number of tries.
