@@ -427,3 +427,58 @@ Give the user a chance to catch the Pokemon using the math/rand package.
 You can use the pokemon's "base experience" to determine the chance of catching it. The higher the base experience, the harder it should be to catch.
 Once the Pokemon is caught, add it to the user's Pokedex. I used a map[string]Pokemon to keep track of caught Pokemon.
 Test the catch command manually - make sure you can actually catch a Pokemon within a reasonable number of tries.
+
+# 5. Inspect
+
+Just like in the Pokemon game, our Pokedex will only allow players to see details about a Pokemon if they have seen it before (or in our case, caught it)
+
+Assignment
+Add an inspect command. It takes the name of a Pokemon and prints the name, height, weight, stats and type(s) of the Pokemon. Example usage:
+
+Pokedex > inspect pidgey
+you have not caught that pokemon
+Pokedex > catch pidgey
+Throwing a Pokeball at pidgey...
+pidgey was caught!
+Pokedex > inspect pidgey
+Name: pidgey
+Height: 3
+Weight: 18
+Stats:
+  -hp: 40
+  -attack: 45
+  -defense: 40
+  -special-attack: 35
+  -special-defense: 35
+  -speed: 56
+Types:
+
+- normal
+- flying
+
+You should not need to make an API call to get this information, since you should have already stored it when the user caught the Pokemon.
+
+If the user has not caught the Pokemon, just print a message saying so.
+
+## POKEDEX
+
+# 1. Pokedex
+
+The main purpose of a Pokedex is to keep track of all the Pokemon you've caught. Gotta catch 'em all!
+
+Assignment
+Add a pokedex command. It takes no arguments but prints a list of all the names of the Pokemon the user has caught. Example usage:
+
+Pokedex > catch pidgey
+Throwing a Pokeball at pidgey...
+pidgey was caught!
+You may now inspect it with the inspect command.
+Pokedex > catch caterpie
+Throwing a Pokeball at caterpie...
+caterpie was caught!
+You may now inspect it with the inspect command.
+Pokedex > pokedex
+Your Pokedex:
+
+- pidgey
+- caterpie
